@@ -1,0 +1,26 @@
+#maindiv{
+    width: 650px;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+#login_form{
+    margin-top: 120px;
+}
+
+.headline{
+    padding: 10px 0 30px 0;
+    font-size: 35px;
+    font-family: 'stratum-1-web',sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #0088CC;
+}
+#bottom_link{
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 25px 0;
+    font-size: 12px;
+}

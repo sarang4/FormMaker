@@ -1,0 +1,37 @@
+{% include 'FormBuilderFBBundle:General:head.html.twig' %}
+<div id="maindiv" style="width: 1040px;"> 
+<div class="well" style="margin: 0px auto;">
+   <table class="table table-striped"> 
+	<caption><h3>{{form_details.title}}</h3> <br />{{form_details.description}}</caption>
+	<thead>
+	    <tr>
+		<th>#</th>
+		{% for element in form_elements %}
+		    <th>{{element.element_id}} ({{element.type}})</th>
+		{% endfor %}
+	    </tr>
+	</thead>
+	<tbody>
+	    {% for data in form_data %}
+		<tr>
+		    <td>{{loop.index}}</td>
+		    {% for element in form_elements %}
+			{% if element.type == 'checkboxgroup' %}
+			    <td>
+				{% for key, row in data[element.element_id] %}
+				    {{key}}:{{row}}<br/>
+				{% endfor %}
+			    </td>
+			{% else %}
+			    <td>{{data[element.element_id]}}</td>
+			{% endif %}
+		    {% endfor %}
+		</tr>
+	    {% endfor %}
+	</tbody>
+	
+    </table>
+</div>
+</div>
+    
+{% include 'FormBuilderFBBundle:General:footer.html.twig' %}

@@ -1,0 +1,36 @@
+{% include 'FormBuilderFBBundle:General:head.html.twig' %}
+<div id="maindiv" style="width: 1040px;"> 
+<div class="well" style="margin: 0px auto;">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href=""><h3>Forms</h3></a></li>
+        <li class="pull-right">
+            <a class="btn btn-primary" style="margin-top: 10px;" href="/form/signup"><i class="icon-plus icon-white"></i> Add New Form</a>
+        </li>
+    </ul>
+    <div class="clear">
+    </div>
+    {% if length == 0 %}
+	Welcome To Form Builder Create Your First Form
+    {% else %}
+    <table class="table table-striped"> 
+	<thead>
+	    <tr>
+		<th style="width: 80%">Form Name</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    {% for key, form_details in all_forms %}
+		<tr>
+		    <td><a href="/reports/{{form_details.id}}">{{form_details.title}}</a></td>
+		    <td><a href="/form/form_edit?form_id={{form_details.id}}"><i class="icon-edit"></i></a></td>
+		    <td><a style="cursor: pointer;" onclick="window.delete_form('{{form_details.id}}');"><i class="icon-remove"></i></a></td>
+		</tr>
+	    {% endfor %}
+	</tbody>
+	
+    </table>
+    {% endif %}
+</div>
+</div>
+    
+{% include 'FormBuilderFBBundle:General:footer.html.twig' %}

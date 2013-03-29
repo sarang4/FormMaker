@@ -1,0 +1,53 @@
+{% include 'FormBuilderFBBundle:General:head.html.twig' %}
+    
+    <div id="maindiv">
+	<div class="well form-horizontal" id="login_form">
+	    <fieldset>
+	    <h1 class="headline blue">Sign Up</h1>
+	    <div id="login_error_msg" class="alert alert-error" style="display: none; text-align: center;">
+	    </div>
+	    <div class="control-group">
+		<label class="control-label">Name<span style="color: red;">*</span></label>
+		<div class="controls">
+		    <input type="text" class="input-xlarge name" placeholder="Name" name="name">
+		</div>
+	    </div>
+	    <div class="control-group">
+		<label class="control-label">Email<span style="color: red;">*</span></label>
+		<div class="controls">
+		    <input type="text" class="input-xlarge email" placeholder="Email" name="email">
+		</div>
+	    </div>
+	    <div class="control-group">
+		<label class="control-label">Subdomain Name<span style="color: red;">*</span></label>
+		<div class="controls">
+		    <input type="text" class="input-xlarge subdomain" placeholder="subdomain name" name="subdomain">
+		</div>
+	    </div>
+	    <div class="control-group">
+		<label class="control-label">Password<span style="color: red;">*</span></label>
+		<div class="controls">
+		    <input type="password" class="input-xlarge password" placeholder="Password" name="password">
+		</div>
+	    </div>
+	    <div class="control-group">
+		<label class="control-label">Confirm Password<span style="color: red;">*</span></label>
+
+		<div class="controls">
+		    <input type="password" class="confirm_password input-xlarge" placeholder="Confirm Password" name="confirm_password" onkeypress="window.detect_key(event, 2);">
+		</div>
+	    </div>
+	    <div class="form-actions" style="margin-top: 0px; margin-bottom: 0px;"> 
+		<div style="padding-top: 10px;"> 
+		    <button type="submit" class="btn btn-primary" href="javascript:void(0);" onclick="window.register_new_user();">SignUp</button>
+		</div>
+	    </div>
+	    </fieldset>
+	</div>	
+	<div id="bottom_link">
+	    Already have an account?
+	    <a href="/login">Login</a>
+	</div>
+    </div>
+
+{% include 'FormBuilderFBBundle:General:footer.html.twig' %}

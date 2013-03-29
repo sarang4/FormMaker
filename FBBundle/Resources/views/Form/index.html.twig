@@ -1,0 +1,13 @@
+ {% include 'FormBuilderFBBundle:General:head.html.twig' %}
+ {% include 'FormBuilderFBBundle:Form:js_templates.html.twig' %}
+<div id="form_main_content" class="well">
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+	initialize_form_builder("{{type}}", "{{form_id}}");
+    });
+</script>
+
+ {% include 'FormBuilderFBBundle:General:footer.html.twig' %}

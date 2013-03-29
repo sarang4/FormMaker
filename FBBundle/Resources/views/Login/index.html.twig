@@ -1,0 +1,38 @@
+{% include 'FormBuilderFBBundle:Login:head.html.twig' %}
+    
+    <div id="maindiv">
+	<div class="well form-horizontal" id="login_form">
+	    <fieldset>
+	    <h1 class="headline blue">Log in</h1>
+	    <div id="login_error_msg" class="alert alert-error" style="display: none; text-align: center;">
+	    </div>
+	    <div class="control-group">
+		<label class="control-label">Email</label>
+		<div class="controls">
+		    <input type="text" class="input-xlarge" placeholder="Email" name="email">
+		</div>
+	    </div>
+	    <div class="control-group">
+		<label class="control-label">Password</label>
+		<div class="controls">
+		    <input type="password" class="input-xlarge" placeholder="Password" name="password" onkeypress="window.detect_key(event, 1);">
+		</div>
+	    </div>
+	    <div class="form-actions" style="margin-top: 0px; margin-bottom: 0px;"> 
+		<label class="checkbox">
+		    <input type="checkbox"> Remember me
+		</label>
+		<div style="padding-top: 10px;"> 
+		    <button type="submit" class="btn btn-primary" href="javascript:void(0);" onclick="window.do_login();">Login</button>
+		    <a href="/forgot_password" style="padding-left: 10px;font-size: 8px;">FORGOT YOUR PASSWORD?</a>
+		</div>
+	    </div>
+	    </fieldset>
+	</div>
+	<div id="bottom_link">
+	    Don't have an account?
+	    <a href="/register">Sign up</a>
+	</div>	
+    </div>
+
+{% include 'FormBuilderFBBundle:General:footer.html.twig' %}

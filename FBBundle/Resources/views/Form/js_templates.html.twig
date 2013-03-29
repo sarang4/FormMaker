@@ -1,0 +1,434 @@
+{% raw %}
+<script type="text/x-jquery-tmpl" id="form_base">
+    <div class="container-fluid">
+	<div class="row-fluid">
+	    <div class="span4" id="left_panel">
+		Left Side Bar container
+	    </div>
+	    <div class="span8" id="form_panel" style="background:white;padding:20px;">
+		<form class="form-vertical">
+		    <div class="row-fluid">
+			<h2 id="form_title">${form_title}</h2>
+		    </div>
+		    <div class="row-fluid" style="font-size:12px;" id="form_description">
+			${form_description}
+		    </div>
+		</form>
+	    </div>
+		<a class="pull-right btn btn-info" id="save_form" style="margin-top:10px;">Save</a>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="left_panel_template">
+    <div class="tabbable">
+	<ul class="nav nav-tabs" id="selection_tabs">
+	    <li class="active">
+		<a href="#tab1" data-toggle="tab">Add a Field</a>
+	    </li>
+	    <li>
+		<a href="#tab2" data-toggle="tab">Form Settings</a>
+	    </li>
+	    <li>
+		<a href="#tab3" id="field_setting_tab" data-toggle="tab">Field Settings</a>
+	    </li>
+	</ul>
+	<div class="tab-content">
+	    <div class="tab-pane fade-in active" id="tab1">
+		<div class="row-fluid">
+		    <div class="span6">
+			<a class="btn btn-warning input_item" type="text" style="width:100px;">Single Line Text</a>
+		    </div>
+		    <div class="span6">
+			<a class="btn btn-warning input_item" type="textarea" style="width:100px;">Paragraph Text</a>
+		    </div>
+		</div>
+		<div class="row-fluid" style="margin-top:20px;">
+		    <div class="span6">
+			<a class="btn btn-warning input_item" type="checkbox" style="width:100px;">Multiple Choice</a>
+		    </div>
+		    <div class="span6">
+			<a class="btn btn-warning input_item" type="select" style="width:100px;">Selection</a>
+		    </div>
+		</div>
+		<div class="row-fluid" style="margin-top:20px;">
+		    <div class="span6">
+			<a class="btn btn-warning input_item" type="number" style="width:100px;">Number</a>
+		    </div>
+		    <div class="span6">
+			<a class="btn btn-warning input_item" type="radiobox" style="width:100px;">Radiobox</a>
+		    </div>
+		</div>
+	    </div>
+	    <div class="tab-pane fade" id="tab2">
+		<div class="form-vertical">
+		    <div class="control-group">
+		      <label class="control-label" for="form_label_type">Label Position</label>
+		      <div class="controls">
+			    <label class="radio">
+				<input type="radio" name="label_align" id="label_top_align" value="top" checked="checked" class="label_align_change"/>
+				Top
+			    </label>
+			    <label class="radio">
+				<input type="radio" name="label_align" id="label_left_align" value="left" class="label_align_change" />
+				Left
+			    </label>
+		      </div>
+		    </div>
+		    <div class="control-group">
+			<label class="control-label" for="form_title">Form Title</label>
+			<div class="controls">
+			    <input type="text" class="input-xlarge" id="form_title_text" value="${form_title}"/>
+			</div>
+		    </div>
+		    <div class="control-group">
+			<label class="control-label" for="form_description">Form Description</label>
+			<div class="controls">
+			    <textarea type="text" class="input-xlarge" id="form_description_text">${form_description}</textarea>
+			</div>
+		    </div>
+		    <div class="control-group">
+			<label class="control-label" for="form_description">Thanks Message</label>
+			<div class="controls">
+			    <textarea type="text" class="input-xlarge" id="thankyou_message">${thankyou_message}</textarea>
+			</div>
+		    </div>
+		</div>
+	    </div>
+	    <div class="tab-pane fade" id="tab3">
+		There are no Fields in you Form, Add One to view Settings
+	    </div>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="tab3_template">
+    <div class="tab-pane fade" id="tab3">
+	There are no Fields in you Form, Add One to view Settings
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="text_input_template">
+    <div class="input_element" type="text">
+	<div class="action_items pull-right hide">
+	    <i class="icon-remove remove_item"></i>
+	</div>
+	<div class="control_wrapper">
+	    <div class="control-group">
+	      <label class="control-label" for="${id}" id="${label.id}">${label.value}</label>
+	      <div class="controls">
+		<input type="text" class="input-xlarge" default= "${defaultvalue}" id="${id}">
+	      </div>
+	    </div>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="textarea_input_template">
+    <div class="input_element" type="textarea">
+	<div class="action_items pull-right hide">
+	    <i class="icon-remove remove_item"></i>
+	</div>
+	<div class="control_wrapper">
+	    <div class="control-group">
+	        <label class="control-label" for="${id}" id="${label.id}">${label.value}</label>
+	      <div class="controls">
+		<textarea type="textarea" class="input-xlarge" id="${id}" rows="3"></textarea>
+	      </div>
+	    </div>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="number_input_template">
+    <div class="input_element" type="number">
+	<div class="action_items pull-right hide">
+	    <i class="icon-remove remove_item"></i>
+	</div>
+	<div class="control_wrapper">
+	    <div class="control-group">
+	      <label class="control-label" for="${id}" id="${label.id}">${label.value}</label>
+	      <div class="controls">
+		<input type="text" class="input-xlarge" id="${id}"/>
+	      </div>
+	    </div>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="select_input_template">
+    <div class="input_element" type="select">
+	<div class="action_items pull-right hide">
+	    <i class="icon-remove remove_item"></i>
+	</div>
+	<div class="control_wrapper">
+	    <div class="control-group">
+		<label class="control-label" for="${id}" id="${label.id}">${label.value}</label>
+		<div class="controls">
+		  <select class="input-xlarge" id="${id}">
+			{{each(i, choice) options}}
+			    <option>${choice.value}</option>
+			{{/each}}
+		  </select>
+		</div>
+	    </div>
+	</div>
+    </div>
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="checkbox_input_template">
+    <div class="input_element" type="checkbox">
+	<div class="action_items pull-right hide">
+	    <i class="icon-remove remove_item"></i>
+	</div>
+	<div class="control_wrapper">
+	    <div class="control-group">
+		<label class="control-label" for=${id} id="{label.id}">
+		    Checkbox Field
+		</label>
+		<div class="controls">
+		    <label class="checkbox" id="${id}">
+			{{each(i,choice) checkboxes}}
+			    <span style="display:block"><input type="checkbox" value=""/> ${choice.value}</span>
+			{{/each}}
+		    </label>
+		</div>
+	    </div>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="radiobox_input_template">
+    <div class="input_element" type="radiobox">
+	<div class="action_items pull-right hide">
+	    <i class="icon-remove remove_item"></i>
+	</div>
+	<div class="control_wrapper">
+	    <div class="control-group">
+		<label class="control-label" for=${id} id="${label.id}">
+		    Radiobox Field
+		</label>
+		<div class="controls">
+		    <label class="radio" id="${id}">
+			{{each(i,choice) radioboxes}}
+			    <span style="display:block"><input type="radio" value=""/> ${choice.value}</span>
+			{{/each}}
+		    </label>
+		</div>
+	    </div>
+	</div>
+    </div>
+</script>
+<script type="text/x-jquery-tmpl" id="text_settings_template">
+    <div class="field_setting">
+	    <div class="form-vertical">
+		<div class="control-group">
+		    <label class="control-label" for="field_label">Field Label</label>
+		    <div class="controls">
+			<input type="text" class="input-xlarge field_label_text" value="${label.value}"/>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="maxlen">Max Characters</label>
+		    <div class="controls">
+			<input type="text" class="input-xlarge maxlen" value="${maxlength}"/>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="checkbox">
+		      <input type="checkbox" value="" class="hide_field_checkbox">
+			Hidden Field
+		    </label>
+		</div>
+	    </div>
+    </div>
+</script>
+<script type="text/x-jquery-tmpl" id="textarea_settings_template">
+    <div class="field_setting">
+	    <div class="form-vertical">
+		<div class="control-group">
+		    <label class="control-label" for="field_label">Field Label</label>
+		    <div class="controls">
+			<input type="text" class="input-xlarge field_label_text" value="${label.value}"/>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="checkbox">
+		      <input type="checkbox" value="" class="hide_field_checkbox">
+			Hidden Field
+		    </label>
+		</div>
+	    </div>
+    </div>
+</script>
+<script type="text/x-jquery-tmpl" id="select_settings_template">
+    <div class="field_setting">
+	    <div class="form-vertical">
+		<div class="control-group">
+		    <label class="control-label" for="field_label">Field Label</label>
+		    <div class="controls">
+			<input type="text" class="input-xlarge field_label_text" value="${label.value}"/>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="checkbox">
+		      <input type="checkbox" value="" class="hide_field_checkbox">
+			Hidden Field
+		    </label>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="select_options">Select Options</label>
+		    <div class="well well-small clearfix">
+			{{each(i,choice) options}}
+				<div class="single_select_option">
+				    <input type="text" style="margin-top:10px;" class="select_input" value="${choice.value}"/>
+				    <span class="add_single_select_option" style="pointer:cursor"><i class="icon-plus-sign"></i></span>
+				    <span class="delete_single_select_option" style="pointer:cursor"><i class="icon-minus-sign"></i></span>
+				</div>
+			{{/each}}
+			<a class="btn btn-mini btn-info pull-right" id="select_options_done" style="margin-right:20px;">Done</a>
+		    </div>
+		</div>
+	    </div>
+    </div>
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="single_select_option_template">
+    <div class="single_select_option">
+	<input type="text" style="margin-top:10px;" class="select_input" value=""/>
+	<span class="add_single_select_option" style="pointer:cursor"><i class="icon-plus-sign"></i></span>
+	<span class="delete_single_select_option" style="pointer:cursor"><i class="icon-minus-sign"></i></span>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="number_settings_template">
+    <div class="field_setting">
+	    <div class="form-vertical">
+		<div class="control-group">
+		    <label class="control-label" for="field_label">Field Label</label>
+		    <div class="controls">
+			<input type="text" class="input-xlarge field_label_text" value="${label.value}"/>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="form_description">Max Characters</label>
+		    <div class="controls">
+			<input type="text" class="input-xlarge maxlen"/>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="checkbox">
+		      <input type="checkbox" value="" class="hide_field_checkbox">
+			Hidden Field
+		    </label>
+		</div>
+	    </div>
+    </div>
+</script>
+<script type="text/x-jquery-tmpl" id="option_settings_template">
+    <div class="field_setting">
+	    <div class="form-vertical">
+		<div class="control-group">
+		    <label class="control-label" for="field_label">Field Label</label>
+		    <div class="controls">
+			<input type="text" class="input-xlarge field_label_text"/>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="checkbox">
+		      <input type="checkbox" value="" class="hide_field_checkbox">
+			Hidden Field
+		    </label>
+		</div>
+	    </div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="checkbox_settings_template">
+    <div class="field_setting">
+	<div class="form-vertical">
+	    <div class="control-group">
+		<label class="control-label" for="field_label">Field Label</label>
+		<div class="controls">
+		    <input type="text" class="input-xlarge field_label_text" value="${label.value}"/>
+		</div>
+	    </div>
+	    <div class="control-group">
+		<label class="checkbox">
+		  <input type="checkbox" value="" class="hide_field_checkbox">
+		    Hidden Field
+		</label>
+	    </div>
+	    <div class="control-group">
+		<label class="control-label" for="checkbox_options">Checkbox Options</label>
+		<div class="well well-small clearfix">
+		    {{each(i,choice) checkboxes}}
+			    <div class="single_checkbox_option">
+				<input type="text" style="margin-top:10px;" class="checkbox_input" value="${choice.label.value}"/>
+				<span class="add_single_checkbox_option" style="pointer:cursor"><i class="icon-plus-sign"></i></span>
+				<span class="delete_single_checkbox_option" style="pointer:cursor"><i class="icon-minus-sign"></i></span>
+			    </div>
+		    {{/each}}
+		    <a class="btn btn-mini btn-info pull-right" id="checkbox_options_done" style="margin-right:20px;">Done</a>
+		</div>
+	    </div>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="single_checkbox_option_template">
+    <div class="single_checkbox_option">
+	<input type="text" style="margin-top:10px;" class="checkbox_input" value=""/>
+	<span class="add_single_checkbox_option" style="pointer:cursor"><i class="icon-plus-sign"></i></span>
+	<span class="delete_single_checkbox_option" style="pointer:cursor"><i class="icon-minus-sign"></i></span>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="radiobox_settings_template">
+    <div class="field_setting">
+	<div class="form-vertical">
+	    <div class="control-group">
+		<label class="control-label" for="field_label">Field Label</label>
+		<div class="controls">
+		    <input type="text" class="input-xlarge field_label_text" value="${label.value}"/>
+		</div>
+	    </div>
+	    <div class="control-group">
+		<label class="checkbox">
+		  <input type="checkbox" value="" class="hide_field_checkbox">
+		    Hidden Field
+		</label>
+	    </div>
+	    <div class="control-group">
+		<label class="control-label" for="radiobox_options">Radiobox Options</label>
+		<div class="well well-small clearfix">
+		    {{each(i,choice) radioboxes}}
+			    <div class="single_radiobox_option">
+				<input type="text" style="margin-top:10px;" class="radiobox_input" value="${choice.label.value}"/>
+				<span class="add_single_radiobox_option" style="pointer:cursor"><i class="icon-plus-sign"></i></span>
+				<span class="delete_single_radiobox_option" style="pointer:cursor"><i class="icon-minus-sign"></i></span>
+			    </div>
+		    {{/each}}
+		    <a class="btn btn-mini btn-info pull-right" id="radiobox_options_done" style="margin-right:20px;">Done</a>
+		</div>
+	    </div>
+	</div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="single_radiobox_option_template">
+    <div class="single_radiobox_option">
+	<input type="text" style="margin-top:10px;" class="radiobox_input" value=""/>
+	<span class="add_single_radiobox_option" style="pointer:cursor"><i class="icon-plus-sign"></i></span>
+	<span class="delete_single_radiobox_option" style="pointer:cursor"><i class="icon-minus-sign"></i></span>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="success_form_message_template">
+    <div class="alert" style="margin-top:10px;">
+	<strong>Whoa!</strong> New Form Created, You can view it <a href="/show_form/${form_id}" target="_blank">here</a>.
+    </div>
+</script>
+{% endraw %}
